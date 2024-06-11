@@ -1,14 +1,13 @@
 <html>
 <head>
 
-    <script src="calculator.js"></script> 
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<h1> Calculator </h1>
 
-<div id="calculatorBody">
+<div id="calculatorBody" class="center">
 
     <!--                        
         Calculator
@@ -23,37 +22,40 @@
     <div id="numberDisplay">0</div>
     <table>
         <tr>
-            <td><button type="button">%</button></td>
-            <td><button type="button">x^2</button></td>
-            <td><button type="button">+/-</button></td>
-            <td><button type="button">del</button></td>
+            <td><button type="button" class="operatorBtn" id="delBtn">del</button></td>
+            <td><button type="button" class="operatorBtn">x^2</button></td>
+            <td><button type="button" class="operatorBtn">+/-</button></td>
+            <td><button type="button" class="operatorBtn" id="additionOperator">+</button></td>
         </tr>
         <tr>
-            <td><button type="button">7</button></td>
-            <td><button type="button">8</button></td>
-            <td><button type="button">9</button></td>
-            <td><button type="button">x</button></td>
+            <td><button type="button" id="numSeven">7</button></td>
+            <td><button type="button" id="numEight">8</button></td>
+            <td><button type="button" id="numNine">9</button></td>
+            <td><button type="button" class="operatorBtn" id="subtractionOperator">-</button></td>
         </tr>
         <tr>
-            <td><button type="button">4</button></td>
-            <td><button type="button">5</button></td>
-            <td><button type="button">6</button></td>
-            <td><button type="button">-</button></td>
+            <td><button type="button" id="numFour">4</button></td>
+            <td><button type="button" id="numFive">5</button></td>
+            <td><button type="button" id="numSix">6</button></td>
+            <td><button type="button" class="operatorBtn" id="multiplicationOperator">x</button></td>
         </tr>
         <tr>
-            <td><button type="button">1</button></td>
-            <td><button type="button">2</button></td>
-            <td><button type="button">3</button></td>
-            <td><button type="button">+</button></td>
+            <td><button type="button" id="numOne">1</button></td>
+            <td><button type="button" id="numTwo">2</button></td>
+            <td><button type="button" id="numThree">3</button></td>
+            <td><button type="button" class="operatorBtn" id="divisionOperator">/</button></td>
         </tr>
         <tr>
-            <td><button type="button">CLR</button></td>
-            <td><button type="button">0</button></td>
+            <td><button type="button" class="operatorBtn" id="clearBtn">CLR</button></td>
+            <td><button type="button" id="numZero">0</button></td>
             <td><button type="button">.</button></td>
-            <td><button type="button">=</button></td>
+            <td><button type="button" id="equalsBtn">=</button></td>
         </tr>
     </table>
 </div>
 
+<script src="calculator.js"></script> 
+
 </body>
+
 </html>

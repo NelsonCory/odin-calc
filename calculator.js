@@ -25,21 +25,29 @@ function parseDisplay(){
     return Number.parseFloat(numToPrint);
 }
 
+
+function setDisplayValue(x){
+    x = x.toString(x);
+    displayValue = x.split("");
+}
+
+
 function add(x,y){
-    parseDisplay()
-    return x + y;
+    
+    previousValue =  x + y;
+    
 }
 
 function subtract(x,y){
-    return x - y;
+    previousValue = x - y;
 }
 
 function multiply(x,y){
-    return x * y;
+    previousValue = x * y;
 }
 
 function divide(x,y){ //edge case: dividing by zero
-    return x/y; 
+    previousValue = x/y; 
 }
 
 function square(x){
@@ -75,10 +83,10 @@ function deleteChar(){
 
 //event listeners
 
-document.getElementById("additionOperator").addEventListener("click", () => add(previousValue, currValue));
-document.getElementById("subtractionOperator").addEventListener("click", () => subtract(previousValue, currValue));
-document.getElementById("multiplicationOperator").addEventListener("click", () => multiply(previousValue, currValue));
-document.getElementById("divisionOperator").addEventListener("click", () => divide(previousValue, currValue));
+document.getElementById("additionOperator").addEventListener("click", () => add(previousValue, parseDisplay()));
+document.getElementById("subtractionOperator").addEventListener("click", () => subtract(previousValue, parseDisplay()));
+document.getElementById("multiplicationOperator").addEventListener("click", () => multiply(previousValue, parseDisplay()));
+document.getElementById("divisionOperator").addEventListener("click", () => divide(previousValue, parseDisplay()));
 
 document.getElementById("numOne").addEventListener("click", () => pushChar("1"));
 document.getElementById("numTwo").addEventListener("click",() => pushChar("2"));

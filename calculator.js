@@ -47,6 +47,7 @@ function add(x,y){
 
 function subtract(x,y){
     currOperator = "-";
+    previousValue -= parseDisplay();
     previousValue = x - y;
 }
 
@@ -77,9 +78,19 @@ function equals(){
     if(currOperator == "+"){
         add(previousValue,parseDisplay());
     }
+    if (currOperator == "-"){
+        subtract(previousValue,parseDisplay());
+    }
+    if (currOperator == "*"){
+        multiply(previousValue,parseDisplay());
+    }
+    if (currOperator == "/"){
+        divide(previousValue,parseDisplay());
+    }
     setDisplayValue(previousValue);
     console.log(displayValue);
     drawDisplay();
+    currOperator = "";
 
 }
 

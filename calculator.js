@@ -48,16 +48,21 @@ function add(x,y){
 function subtract(x,y){
     currOperator = "-";
     previousValue -= parseDisplay();
+    displayValue = []
     previousValue = x - y;
 }
 
 function multiply(x,y){
     currOperator = "*";
+    previousValue *= parseDisplay();
+    displayValue = []
     previousValue = x * y;
 }
 
 function divide(x,y){ //edge case: dividing by zero
     currOperator = "/";
+    previousValue /= parseDisplay();
+    displayValue = []
     previousValue = x/y; 
 }
 
@@ -90,7 +95,7 @@ function equals(){
     setDisplayValue(previousValue);
     console.log(displayValue);
     drawDisplay();
-    currOperator = "";
+    //currOperator = "";
 
 }
 

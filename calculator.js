@@ -3,6 +3,7 @@
 var previousValue = 0;
 var displayValue = []
 var currValue = 0;
+var currOperator = "+";
 
 function drawDisplay(){
     document.getElementById("numberDisplay").innerHTML = parseDisplay();
@@ -27,26 +28,35 @@ function parseDisplay(){
 
 
 function setDisplayValue(x){
-    x = x.toString(x);
+    console.log("Set Display Value" + x);
+    x = x.toString();
+    console.log(x);
     displayValue = x.split("");
+    console.log(x + displayValue);
 }
 
 
 function add(x,y){
-    
+    currOperator = "+";
+    previousValue += parseDisplay();
+    displayValue = []
+
     previousValue =  x + y;
-    
+
 }
 
 function subtract(x,y){
+    currOperator = "-";
     previousValue = x - y;
 }
 
 function multiply(x,y){
+    currOperator = "*";
     previousValue = x * y;
 }
 
 function divide(x,y){ //edge case: dividing by zero
+    currOperator = "/";
     previousValue = x/y; 
 }
 
@@ -63,6 +73,15 @@ function clear(){
     drawDisplay();
 }
 
+function equals(){
+    if(currOperator == "+"){
+        add(previousValue,parseDisplay());
+    }
+    setDisplayValue(previousValue);
+    console.log(displayValue);
+    drawDisplay();
+
+}
 
 function toggleNeg(){
     //set first char in displayValue to - or remove front if front is -
@@ -101,3 +120,5 @@ document.getElementById("numZero").addEventListener("click",() => pushChar("0"))
 
 document.getElementById("clearBtn").addEventListener("click",() => clear());
 document.getElementById("delBtn").addEventListener("click",() => deleteChar());
+
+document.getElementById("equalsBtn").addEventListener("click",() => equals());

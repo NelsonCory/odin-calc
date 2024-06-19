@@ -1,6 +1,6 @@
 //calculator
 
-var previousValue = 0;
+var previousValue = null;
 var displayValue = []
 var currValue = 0;
 var currOperator = "+";
@@ -38,6 +38,9 @@ function setDisplayValue(x){
 
 function add(x,y){
     currOperator = "+";
+    if(previousValue = null){
+        previousValue = 0;
+    }
     previousValue += parseDisplay();
     displayValue = []
 
@@ -47,6 +50,9 @@ function add(x,y){
 
 function subtract(x,y){
     currOperator = "-";
+    if(previousValue = null){
+        previousValue = 0;
+    }
     previousValue -= parseDisplay();
     displayValue = []
     previousValue = x - y;
@@ -92,10 +98,13 @@ function equals(){
     if (currOperator == "/"){
         divide(previousValue,parseDisplay());
     }
-    setDisplayValue(previousValue);
-    console.log(displayValue);
-    drawDisplay();
-    //currOperator = "";
+    if(currOperator != ""){
+        setDisplayValue(previousValue);
+        console.log(displayValue);
+        drawDisplay();
+        currOperator = "";
+    }
+    
 
 }
 
@@ -133,6 +142,8 @@ document.getElementById("numSeven").addEventListener("click",() => pushChar("7")
 document.getElementById("numEight").addEventListener("click", () => pushChar("8"));
 document.getElementById("numNine").addEventListener("click",() => pushChar("9"));
 document.getElementById("numZero").addEventListener("click",() => pushChar("0"));
+document.getElementById("decimalBtn").addEventListener("click",() => pushChar("."));
+
 
 document.getElementById("clearBtn").addEventListener("click",() => clear());
 document.getElementById("delBtn").addEventListener("click",() => deleteChar());
